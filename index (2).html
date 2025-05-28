@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería Multimedia</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 30px 0;
+            background: linear-gradient(135deg, #05806f 0%, #014d29 100%);
+            color: white;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .media-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .media-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .media-content {
+            position: relative;
+            padding-top: 56.25%;
+            /* 16:9 Aspect Ratio */
+            overflow: hidden;
+        }
+
+        .media-content iframe,
+        .media-content img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .media-info {
+            padding: 15px;
+        }
+
+        .media-info h3 {
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .tag {
+            background-color: #3b2323;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: #0d4d72;
+        }
+
+        .tag.video {
+            background-color: #ffcdd2;
+            color: #c62828;
+        }
+
+        .tag.photo {
+            background-color: #395c79;
+            color: #092b52;
+        }
+
+        .filter-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .filter-btn {
+            padding: 8px 20px;
+            border: none;
+            border-radius: 20px;
+            background-color: #501e1e;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn.active {
+            background-color: #7e1e21;
+            color: white;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            background-color: #333;
+            color: white;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Mi Galería Multimedia</h1>
+        <p>Fotos y videos seleccionados</p>
+    </header>
+
+    <div class="gallery">
+        <!-- Video de YouTube 1 -->
+        <div class="media-card" data-category="video">
+            <div class="media-content">
+                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+            </div>
+            <div class="media-info">
+                <h3></h3>
+                <p></p>
+                <div class="tags">
+                    <span class="tag video"></span>
+                    <span class="tag"></span>
+                    <span class="tag"></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Foto 1 -->
+        <div class="media-card" data-category="photo">
+            <div class="media-content">
+                <img src="C:\Users\oscar coxic\OneDrive - Universidad Mariano Gálvez\Imágenes\WhatsApp Image 2025-05-25 at 8.55.37 PM.png"
+                    alt="Foto de naturaleza">
+
+            </div>
+        </div>
+
+        <!-- Video de YouTube 2 -->
+        <div class="media-card" data-category="video">
+            <div class="media-content">
+                <iframe src="https://youtu.be/88-WerrEKjE?si=uqa2BUdyr2iFQqSR" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+            </div>
+            <div class="media-info">
+                <h3>Tutorial rápido</h3>
+                <p>Video tutorial paso a paso</p>
+                <div class="tags">
+                    <span class="tag video"></span>
+                    <span class="tag"></span>
+                    <span class="tag"></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Foto 2 -->
+        <div class="media-card" data-category="photo">
+            <div class="media-content">
+                <img src="https://source.unsplash.com/random/600x400?city" alt="Foto urbana">
+            </div>
+            <div class="media-info">
+                <h3>Vida urbana</h3>
+                <p>Ciudad moderna de noche</p>
+                <div class="tags">
+                    <span class="tag photo"></span>
+                    <span class="tag"></span>
+                    <span class="tag"></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Foto 3 -->
+        <div class="media-card" data-category="photo">
+            <div class="media-content">
+                <img src="C:\Users\oscar coxic\Downloads\WhatsApp Image 2025-05-25 at 8.55.37 PM (2).jpeg"
+                    alt="Retrato">
+            </div>
+            <div class="media-info">
+                <h3>Retrato artístico</h3>
+                <p>Expresiones humanas capturadas</p>
+                <div class="tags">
+                    <span class="tag photo"></span>
+                    <span class="tag"></span>
+                    <span class="tag"></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Video de YouTube 3 -->
+        <div class="media-card" data-category="video">
+            <div class="media-content">
+                <iframe src="https://www.youtube.com/embed/JGwWNGJdvx8" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+            </div>
+            <div class="media-info">
+                <h3>Documental</h3>
+                <p>Explorando el mundo natural</p>
+                <div class="tags">
+                    <span class="tag video"></span>
+                    <span class="tag"></span>
+                    <span class="tag"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <footer>
+        <p>&copy; </p>
+    </footer>
+
+    <script>
+        // Filtrado de contenido
+        document.querySelectorAll('.filter-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                // Actualizar botones activos
+                document.querySelectorAll('.filter-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                button.classList.add('active');
+
+                const filter = button.dataset.filter;
+                const mediaCards = document.querySelectorAll('.media-card');
+
+                mediaCards.forEach(card => {
+                    if (filter === 'all' || card.dataset.category === filter) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

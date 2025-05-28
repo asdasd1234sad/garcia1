@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>el mundo de oscar</title>
+    <style>
+        :root {
+            --primary: #1ab493;
+            --secondary: #ff9e00;
+            --dark: #121212;
+            --light: #f8f9fa;
+            --accent: #1db954;
+            /* Verde Spotify */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--dark);
+            color: var(--light);
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(to right, var(--primary), var(--dark));
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(39, 18, 18, 0.5);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--secondary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo i {
+            margin-right: 10px;
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+
+        .nav-links i {
+            margin-right: 8px;
+            font-size: 1.1rem;
+        }
+
+        .hero {
+            background: url('https://images.unsplash.com/photo-1496293455970-f8581aae0e3b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(133, 30, 30, 0.6);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            width: 60%;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--secondary);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--accent);
+            color: rgb(151, 42, 42);
+            padding: 0.8rem 1.8rem;
+            border: none;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(24, 177, 77, 0.534);
+        }
+
+        .section-title {
+            text-align: center;
+            margin: 3rem 0;
+            color: var(--secondary);
+            font-size: 2.5rem;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .feature-card {
+            background: rgba(19, 22, 160, 0.05);
+            padding: 2rem;
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .feature-card i {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 1rem;
+            color: var(--secondary);
+        }
+
+        footer {
+            background: linear-gradient(to right, var(--primary), var(--dark));
+            padding: 3rem 0;
+            margin-top: 3rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-column h3 {
+            color: var(--secondary);
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: var(--light);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+
+        .social-media {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-media a {
+            color: var(--light);
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+
+        .social-media a:hover {
+            color: var(--accent);
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(80, 19, 19, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+            }
+
+            .nav-links {
+                margin-top: 1rem;
+            }
+
+            .nav-links li {
+                margin-left: 1rem;
+                margin-right: 1rem;
+            }
+
+            .hero-content {
+                width: 90%;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">
+                    <i class="fas fa-music"></i> the world coxic
+                </a>
+                <ul class="nav-links">
+                    <li><a href="artistas.html"><i class="fas fa-guitar"></i> bandas</a></li>
+                    <li><a href="generos.html"><i class="fas fa-users"></i> deja tu huella</a></li>
+                    <li><a href="conciertos.html"><i class=""></i> videos y fotos </a></li>
+
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>puedes ver un poco de mis gustos musicales</h1>
+                <p>un poco de mis gustos musicales , me gusta mucho escuchar dos bandas nirvana y my chemical romance.
+                </p>
+                <a href="cox.html" class="btn">coxic </a>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <h2 class="section-title">oscar coxic</h2>
+
+        <div class="features">
+            <div class="feature-card">
+                <i class="fas fa-headphones"></i>
+                <h3>nirvana </h3>
+                <p>Nirvana fue una banda estadounidense de grunge formada en 1987 en Aberdeen, Washington. Fue uno de
+                    los grupos más influyentes de los años 90 y pioneros del movimiento grunge..</p>
+
+            </div>
+
+            <div class="feature-card">
+                <i class="fas fa-ticket-alt"></i>
+                <h3>my chemical romance</h3>
+                <p>My Chemical Romance (MCR) fue una banda estadounidense de rock alternativo/emo formada en 2001 en
+                    Nueva Jersey. Se convirtió en una de las bandas más influyentes de los años 2000, conocida por su
+                    estética oscura, letras emocionales y espectáculos teatrales.</p>
+
+            </div>
+
+            <div class="feature-card">
+                <i class="fas fa-graduation-cap"></i>
+                <h3>quien so yo?</h3>
+                <p>soy un joven que le gusta mucho la musica y quiere ser ingeniero en sistemas en el futuro</p>
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="copyright">
+        <p>&copy; coxic</p>
+    </div>
+    </div>
+    </footer>
+</body>
+
+</html>
